@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          registry-url: 'https://npm.pkg.github.com'
+          registry-url: https://registry.npmjs.org
       - name: install
         run: npm install
       - name: test
@@ -26,4 +26,4 @@ jobs:
         run: |
           npx can-npm-publish --yes --verbose && npm publish || echo "Does not publish"
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
